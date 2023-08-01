@@ -1,0 +1,59 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; }
+
+.bodyIndex{
+    background: url(../img/Blu.jpg) no-repeat;
+    font-family: 'Roboto', sans-serif;
+
+}
+
+.headerIndex{
+    background-color: whitesmoke;
+
+    padding: 10px;
+    text-align:center;
+}
+
+.headerSpan{
+    color:black;
+    font-family: 'Permanent Marker', cursive;
+    font-size: 3rem;
+}
+
+.mainTitulo{
+    margin: 2rem;
+    justify-content: center;
+
+}
+
+
+.footerIndex{
+
+    background-color: whitesmoke;
+    padding:.8rem;
+
+    font-family: 'Dongle', sans-serif;
+    text-align: center;
+    font-weight: bold;
+    font-size: 25px;
+    bottom: 0;
+    width: 100%;
+    position: absolute; /*HASTA QUE HAYA SUFICIENTE INFORMACION PARA OCUPAR EL ESPACIO*/
+}
+
+.headerLink{
+    text-decoration: none;
+    color: black;
+}
+
+.footerLink{
+    color: black;
+    text-decoration:underline;
+    font-style: italic;
+}
+.footerLink:hover{
+    color:chartreuse;
+    text-decoration: none;
+}
