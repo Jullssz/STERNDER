@@ -4,16 +4,61 @@
     box-sizing: border-box; }
 
 .bodyIndex{
-    background: url(../img/Blu.jpg) no-repeat;
+    /* background: url(../img/Blu.jpg) no-repeat; */
     font-family: 'Roboto', sans-serif;
 
 }
+body.dark .headerIndex{
+    background-color: red;
+}
 
+
+
+/* ////////////////////////////////HEADER//////////////////////////////// */
 .headerIndex{
-    background-color: whitesmoke;
 
+    background-color: whitesmoke;
     padding: 10px;
+    display: flex;
+    justify-content: space-evenly;
     text-align:center;
+}
+
+.cambiarModoBoton{
+
+    background-color: #132b41;
+
+    width: 80px;
+    height: 40px;
+    padding: 0 5px;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    border-radius: 100px;
+    border: 2px red solid;
+    transition: .2 ease ;
+}
+.spanBoton{
+    color: white;
+}
+
+.cambiarModoBoton::before{
+    content: "";
+    position: absolute;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    background-color: white;
+    border: solid thin #000;
+    left: 0;
+    right: unset;
+}
+.cambiarModoBoton.active::before{
+    right: 0;
+    left: unset;
+    border: solid thin #fff;
 }
 
 .headerSpan{
@@ -22,13 +67,62 @@
     font-size: 3rem;
 }
 
+
+
+
+/* ////////////////////////////////MAIN//////////////////////////////// */
+
 .mainTitulo{
     margin: 2rem;
-    justify-content: center;
+    text-align: center;
+}
 
+.mainParrafo{
+    display: flex;
+    justify-content: center;
+    color: black;
 }
 
 
+.sectionMain{
+    /* border: #132b41 solid 8px; */
+    margin: 2rem;
+}
+
+.contentDiv{
+    display: flex;
+    justify-content: center;
+    background-color: #fff;
+    border-radius: 20px;
+    padding: 15px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.gridDiv{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 2rem 3.5rem;
+    gap: 13px 170px;
+    grid-template-areas: 
+    "monto entrada salida"
+    "number divisa1 divisa2"
+    ;
+}
+.hijo{
+    border: #000;
+    
+}
+
+.gridAc{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+
+/* ////////////////////////////////FOOTER//////////////////////////////// */
 .footerIndex{
 
     background-color: whitesmoke;
@@ -41,7 +135,7 @@
     bottom: 0;
     width: 100%;
     position: absolute; /*HASTA QUE HAYA SUFICIENTE INFORMACION PARA OCUPAR EL ESPACIO*/
-}
+} 
 
 .headerLink{
     text-decoration: none;
@@ -56,4 +150,4 @@
 .footerLink:hover{
     color:chartreuse;
     text-decoration: none;
-}
+} 
