@@ -1,2 +1,2 @@
 # divisas
-Proyecto de Coderhouse || Curso JavaScript
+## Proyecto de Coderhouse || Curso JavaScript
