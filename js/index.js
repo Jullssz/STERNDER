@@ -1,16 +1,16 @@
-const d = document  //Constante con DOCUMENT = d
-const b = d.body    //Constante con BODY = b
+const d = document
+const b = d.body
 b.classList = 'bodyIndex'
 b.style.backgroundImage = "url('../img/Blu.jpg')"
-const h = d.head   //Constante con HEAD  = h
+const h = d.head
 const titulo = d.createElement('title')
 const titulo1 = titulo.innerText = 'Conversor de Divisas | Sternder'
-h.appendChild(titulo)  
+h.appendChild(titulo)
 
 // Creacion del Footer
 const footer = d.createElement('footer')
 footer.classList = 'footerIndex'
-const spanFooter = d.createElement('span') //Creacion del SpanFooter
+const spanFooter = d.createElement('span')
 const aFooter = spanFooter.innerHTML = `<span class="footerSpan">
 Todos los derechos reservados - Desarrollado por 
 <a class="footerLink" href="https://linktr.ee/Jullss" target="_blank">Jullss</a></span>`
@@ -48,40 +48,47 @@ const divSectionMainContGrid = divSectionMain.innerHTML = `
 
 <div class="hijo number gridAc input-group mb-3">
 <span class="input-group-text">$</span>
-<span> 
-<input type="text" class="form-control" aria-label="Dollar amount (with dot and two decimal places)">
+<input id="montoInput" type="number" class="form-control">
 </div>
 
 <div class="hijo divisa1 input-group mb-3">
-<input type="text" class="form-control" aria-label="Text input with segmented dropdown button">
-  <button type="button" class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
-    <span class="visually-hidden">Toggle Dropdown</span>
-  </button>
-  <ul class="dropdown-menu dropdown-menu-end">
-    <li><a class="dropdown-item" href="#">ARS</a></li>
-    <li><a class="dropdown-item" href="#"></a></li>
-    <li><a class="dropdown-item" href="#"></a></li>
-  </ul>
+<input id="divisa1Input" type="text" class="form-control" value="ARS" readonly>
 </div>
 
 <div class="hijo divisa2 input-group mb-3">
-<input type="text" class="form-control" aria-label="Text input with segmented dropdown button">
-  <button type="button" class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
+<input id="divisa2Input" type="text" class="form-control" readonly>
+  <button type="text" class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
     <span class="visually-hidden">Toggle Dropdown</span>
   </button>
-  <ul class="dropdown-menu dropdown-menu-end">
-    <li><a class="dropdown-item" href="#">USD</a></li>
-    <li><a class="dropdown-item" href="#">EUR</a></li>
-    <li><a class="dropdown-item" href="#">JPY</a></li>
+  <ul id="ulDivisas" class="dropdown-menu dropdown-menu-end">
+    <li><button id="USD" class="dropdown-item">USD</button>
+    </li>
+    <li><button id="EUR" class="dropdown-item">EUR</button>
+    </li>
+    <li><button id="JPY" class="dropdown-item">JPY</button>
+    </li>
   </ul>
 </div>
 `
+
+const calculador = d.createElement('button')
+calculador.classList = 'calculador'
+calculador.id = 'calcularBoton'
+const calculadorText = calculador.innerText = `Calcular`
+
+mensajeError = d.createElement('p')
+mensajeError.id = 'mensajeError'
+mensajeError.classList = 'mensajeError'
+
 b.prepend(main)
 main.append(h2Main)
 main.append(aMain)
 main.appendChild(sectionMain)
 sectionMain.appendChild(contentDiv)
+sectionMain.appendChild(mensajeError)
+divSectionMain.appendChild(calculador)
 contentDiv.appendChild(divSectionMain)
+
 
 // Creacion del Header
 const header = d.createElement('header')
@@ -92,7 +99,7 @@ const spanHeader = d.createElement('span') //Creacion del SpanHeader
 const aHeader = spanHeader.innerHTML = `<span class="headerSpan">
 <a class="headerLink" href="index.html">Sternder</a>
 </span>`
-const icon = d.createElement('button')   //Creacion del Boton Oscuro
+const icon = d.createElement('button')     //Creacion del Boton Oscuro
 icon.classList = 'cambiarModoBoton'
 icon.id = 'cambiarModoBoton'
 const iconSpan1 = d.createElement('span')
@@ -114,50 +121,3 @@ icon.appendChild(iconSpan1)
 icon.appendChild(iconSpan2)
 h1.appendChild(spanHeader)
 
-
-// EN PROCESO
-
-// const conversiones = [                  
-//     {
-//         USD: 1,
-//         ARS_usd: 500,
-//         JPY_usd: 144,
-//         EUR_usd: 0.91,
-//         CLP_usd: 855,
-//         GBP_usd: 0.78,
-//         BRL_usd: 4.91,
-//     },
-//     {
-//         ARS: 1,
-//         USD_ars: 500,
-//         JPY_ars: 200,
-//         BRL_ars: 150,
-//     }
-// ]
-
-
-// function convertidor(cantidad, entrada, salida) {
-//     if (isNaN(cantidad)) {
-//         console.error("ingresa un valor numerico")
-//     }
-//     if (entrada === salida) {
-//         console.error("Las divisas seleccionadas son iguales")
-//     }
-//     if (cantidad === 0) {
-//         console.error("No es posible hacer la conversión")
-//         return;
-//     }
-
-//     const montoConvertido = parseFloat((cantidad * (conversiones[entrada] / conversiones[salida])).toFixed(2));
-//     return cantidad + " " + entrada + " = " + montoConvertido + " " + salida
-// }
-
-// for (let i = 0; i < 1; i++) {
-//     const cantidad = parseFloat(prompt("Ingresa la cantidad a convertir:"))
-//     const entrada = prompt("Ingresa la divisa de origen (ARS O USD):")
-//     const salida = prompt("Ingresa la divisa de destino (ARS, USD, JPY, EUR, CLP, GBP O BRL):")
-
-//     const resultado = convertidor(cantidad, entrada, salida)
-//     alert("El resultado de tu conversión: " + resultado)
-//     console.log(resultado)
-// }

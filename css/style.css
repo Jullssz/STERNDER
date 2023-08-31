@@ -16,7 +16,6 @@ body.dark .headerIndex{
 
 /* ////////////////////////////////HEADER//////////////////////////////// */
 .headerIndex{
-
     background-color: whitesmoke;
     padding: 10px;
     display: flex;
@@ -25,9 +24,7 @@ body.dark .headerIndex{
 }
 
 .cambiarModoBoton{
-
     background-color: #132b41;
-
     width: 80px;
     height: 40px;
     padding: 0 5px;
@@ -37,7 +34,7 @@ body.dark .headerIndex{
     justify-content: space-between;
     position: relative;
     border-radius: 100px;
-    border: 2px red solid;
+    border: 2px azure solid;
     transition: .2 ease ;
 }
 .spanBoton{
@@ -119,15 +116,32 @@ body.dark .headerIndex{
     align-items: center;
 }
 
+.calculador{
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    margin-top: 10px;
+    padding: 8px 12px;
+    border-radius: 3px;
+    cursor: pointer;
+}
 
+.calculador:hover{
+    background-color: #0056b3;
+}
+
+.mensajeError{
+    color: #ff0000ad;
+    font-weight: bold;
+    text-align: center;
+    padding: 1.5rem;
+}
 
 
 /* ////////////////////////////////FOOTER//////////////////////////////// */
 .footerIndex{
-
     background-color: whitesmoke;
     padding:.8rem;
-
     font-family: 'Dongle', sans-serif;
     text-align: center;
     font-weight: bold;
