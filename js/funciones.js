@@ -1,5 +1,4 @@
 //Evento con localStorage para el boton modo oscuro. Por el momento solo cambia el bg del header
-
 const cambio = d.querySelector('#cambiarModoBoton')
 
 cambio.addEventListener('click', () => {
@@ -127,7 +126,6 @@ calcularBoton.addEventListener('click', function () {
 
 
 // Funcion que agrega las nuevas divisas
-
 function agregarNuevaDivisa(divisa, valorConversion) {
   const nuevoBoton = document.createElement('li');
   nuevoBoton.innerHTML = `<button id="${divisa}" class="dropdown-item">${divisa}</button>`;

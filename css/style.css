@@ -4,15 +4,9 @@
     box-sizing: border-box; }
 
 .bodyIndex{
-    /* background: url(../img/Blu.jpg) no-repeat; */
     font-family: 'Roboto', sans-serif;
 
 }
-body.dark .headerIndex{
-    background-color: red;
-}
-
-
 
 /* ////////////////////////////////HEADER//////////////////////////////// */
 .headerIndex{
@@ -64,11 +58,7 @@ body.dark .headerIndex{
     font-size: 3rem;
 }
 
-
-
-
 /* ////////////////////////////////MAIN//////////////////////////////// */
-
 .mainTitulo{
     margin: 2rem;
     text-align: center;
@@ -82,7 +72,6 @@ body.dark .headerIndex{
 
 
 .sectionMain{
-    /* border: #132b41 solid 8px; */
     margin: 2rem;
 }
 
@@ -137,7 +126,6 @@ body.dark .headerIndex{
     padding: 1.5rem;
 }
 
-
 /* ////////////////////////////////FOOTER//////////////////////////////// */
 .footerIndex{
     background-color: whitesmoke;
@@ -148,7 +136,7 @@ body.dark .headerIndex{
     font-size: 25px;
     bottom: 0;
     width: 100%;
-    position: absolute; /*HASTA QUE HAYA SUFICIENTE INFORMACION PARA OCUPAR EL ESPACIO*/
+    position: absolute;
 } 
 
 .headerLink{
@@ -165,3 +153,12 @@ body.dark .headerIndex{
     color:chartreuse;
     text-decoration: none;
 } 
+
+/* ////////////////////////////////MODO DARK//////////////////////////////// */
+body.dark .headerIndex{
+    background-color: black;
+
+}
+body.dark .headerLink{
+    color: azure;
+}
