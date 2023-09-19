@@ -1,4 +1,4 @@
-//Evento con localStorage para el boton modo oscuro. Por el momento solo cambia el bg del header
+//Evento con localStorage para el boton modo oscuro.
 const cambio = d.querySelector('#cambiarModoBoton')
 
 cambio.addEventListener('click', () => {
@@ -21,13 +21,11 @@ if (localStorage.getItem('darkMode') === 'true') {
   cambio.classList.remove('active')
 }
 
-
-//Funcion que realizar el exchange de las monedas
 const conversiones = {
   ARS: 1,
-  USD: 0.011,
-  EUR: 0.009,
-  JPY: 1.21
+  USD: 1,
+  EUR: 1,
+  JPY: 1,
 }
 
 const montoInput = d.getElementById('montoInput')
@@ -37,25 +35,56 @@ const calcularBoton = d.getElementById('calcularBoton')
 const ulDivisas = d.getElementById('ulDivisas')
 const mensajeError = d.getElementById('mensajeError')
 
+async function tasasActualizadas() {
+  try {
+    const api = '01b52a1752af0563243b1eee'
+    const respuesta = await fetch(`https://v6.exchangerate-api.com/v6/${api}/latest/ARS`)
+    const info = await respuesta.json()
+    return info.conversion_rates
+  } catch (error) {
+    Swal.fire({
+      icon: 'error',
+      title: 'Inconvenientes con la tasa de cambios',
+      text: 'Disculpe las molestias, reinténtelo más tarde!',
+    })
+    return null
+  }
+}
+
+tasasActualizadas().then((tasas) => {
+  if (tasas) {
+    Object.assign(conversiones, tasas)
+  }
+})
+
 function convertirMoneda() {
   const monto = parseFloat(montoInput.value)
   const divisa1 = divisa1Input.value
   const divisa2 = divisa2Input.value
-  const tasaCambio = conversiones[divisa2] / conversiones[divisa1]
-  const resultado = monto * tasaCambio
+
+  if (conversiones[divisa1] && conversiones[divisa2]) {
+    const tasaCambio = conversiones[divisa2] / conversiones[divisa1]
+    const resultado = monto * tasaCambio
+  } else {
+    mensajeError.textContent = 'Divisas no válidas'
+  }
 }
 
-ulDivisas.addEventListener('click', function (event) {
-  const target = event.target
-  if (target.classList.contains('dropdown-item')) {
-    divisa2Input.value = target.id
+ulDivisas.addEventListener('click', async function (event) {
+  const dropdownItem = event.target
+  if (dropdownItem.classList.contains('dropdown-item')) {
+    divisa2Input.value = dropdownItem.id
+    const tasas = await tasasActualizadas()
+    if (tasas) {
+      Object.assign(conversiones, tasas)
+    }
     if (calcularBoton.clicked) {
       convertirMoneda()
     }
   }
 })
 
-const botonesMoneda = document.querySelectorAll('.dropdown-item');
+const botonesMoneda = document.querySelectorAll('.dropdown-item')
 botonesMoneda.forEach(button => {
   button.addEventListener('click', function () {
     divisa2Input.value = button.id
@@ -66,7 +95,7 @@ botonesMoneda.forEach(button => {
 })
 
 calcularBoton.addEventListener('click', function () {
-  const monto = parseFloat(montoInput.value);
+  const monto = parseFloat(montoInput.value)
   if (monto > 0) {
     mensajeError.textContent = ''
     convertirMoneda()
@@ -75,10 +104,9 @@ calcularBoton.addEventListener('click', function () {
     const tasaCambio = conversiones[divisa2] / conversiones['ARS']
     const resultado = monto * tasaCambio
     const fechaHora = new Date()
-    const fechaHoraAct = fechaHora.toLocaleString()
+    const fechaHoraActualizada = fechaHora.toLocaleString()
 
-    
-// SweetAlert con setTime para que las propiedades tengan un intervalo de aparición simulando una animación
+    // SweetAlert con setTime para que las propiedades tengan un intervalo de aparición simulando una animación
     if (resultado > 0) {
 
       Swal.fire({
@@ -109,7 +137,7 @@ calcularBoton.addEventListener('click', function () {
 
       setTimeout(() => {
         Swal.update({
-          footer: `Horario Actualizado de la conversión: ${fechaHoraAct}`
+          footer: `Horario Actualizado de la conversión: ${fechaHoraActualizada}`
         })
       }, 2000)
 
@@ -124,17 +152,16 @@ calcularBoton.addEventListener('click', function () {
   }
 })
 
-
-// Funcion que agrega las nuevas divisas
+//Funcion que agrega las nuevas divisas
 function agregarNuevaDivisa(divisa, valorConversion) {
-  const nuevoBoton = document.createElement('li');
-  nuevoBoton.innerHTML = `<button id="${divisa}" class="dropdown-item">${divisa}</button>`;
-  ulDivisas.appendChild(nuevoBoton);
-  conversiones[divisa] = valorConversion;
+  const nuevoBoton = document.createElement('li')
+  nuevoBoton.innerHTML = `<button id="${divisa}" class="dropdown-item">${divisa}</button>`
+  ulDivisas.appendChild(nuevoBoton)
+  conversiones[divisa] = valorConversion
 }
 
-agregarNuevaDivisa('GBP', 0.008)
-agregarNuevaDivisa('AUD', 0.015)
-
-
-
+agregarNuevaDivisa('GBP', 1)
+agregarNuevaDivisa('AUD', 1)
+agregarNuevaDivisa('BOB', 1)
+agregarNuevaDivisa('CLP', 1)
+agregarNuevaDivisa('CAD', 1)
