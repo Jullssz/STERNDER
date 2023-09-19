@@ -90,6 +90,20 @@ divSectionMain.appendChild(calculador)
 contentDiv.appendChild(divSectionMain)
 
 
+// Creacion del Section con las Tablas
+const sectionTablas = d.createElement('section')
+sectionTablas.classList = 'sectionTablas'
+const tabla1 = d.createElement('table')
+tabla1.id = 'tablaMoneda1'
+
+const tabla2 = d.createElement('table')
+tabla2.id = 'tablaMoneda2'
+
+main.appendChild(sectionTablas)
+sectionTablas.appendChild(tabla1)
+sectionTablas.appendChild(tabla2)
+
+
 // Creacion del Header
 const header = d.createElement('header')
 header.classList = 'headerIndex'

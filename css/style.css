@@ -1,23 +1,23 @@
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box; }
-
-.bodyIndex{
-    font-family: 'Roboto', sans-serif;
-
-}
-
-/* ////////////////////////////////HEADER//////////////////////////////// */
-.headerIndex{
+    box-sizing: border-box;
+  }
+  
+  .bodyIndex {
+    font-family: "Roboto", sans-serif;
+  }
+  
+  /* ////////////////////////////////HEADER//////////////////////////////// */
+  .headerIndex {
     background-color: whitesmoke;
     padding: 10px;
     display: flex;
     justify-content: space-evenly;
-    text-align:center;
-}
-
-.cambiarModoBoton{
+    text-align: center;
+  }
+  
+  .cambiarModoBoton {
     background-color: #132b41;
     width: 80px;
     height: 40px;
@@ -29,13 +29,13 @@
     position: relative;
     border-radius: 100px;
     border: 2px azure solid;
-    transition: .2 ease ;
-}
-.spanBoton{
+    transition: 0.2 ease;
+  }
+  .spanBoton {
     color: white;
-}
-
-.cambiarModoBoton::before{
+  }
+  
+  .cambiarModoBoton::before {
     content: "";
     position: absolute;
     height: 40px;
@@ -45,67 +45,64 @@
     border: solid thin #000;
     left: 0;
     right: unset;
-}
-.cambiarModoBoton.active::before{
+  }
+  .cambiarModoBoton.active::before {
     right: 0;
     left: unset;
     border: solid thin #fff;
-}
-
-.headerSpan{
-    color:black;
-    font-family: 'Permanent Marker', cursive;
+  }
+  
+  .headerSpan {
+    color: black;
+    font-family: "Permanent Marker", cursive;
     font-size: 3rem;
-}
-
-/* ////////////////////////////////MAIN//////////////////////////////// */
-.mainTitulo{
+  }
+  
+  /* ////////////////////////////////MAIN//////////////////////////////// */
+  .mainTitulo {
     margin: 2rem;
     text-align: center;
-}
-
-.mainParrafo{
+  }
+  
+  .mainParrafo {
     display: flex;
     justify-content: center;
     color: black;
-}
-
-
-.sectionMain{
+  }
+  
+  .sectionMain {
     margin: 2rem;
-}
-
-.contentDiv{
+  }
+  
+  .contentDiv {
     display: flex;
     justify-content: center;
     background-color: #fff;
     border-radius: 20px;
     padding: 15px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-.gridDiv{
+  }
+  
+  .gridDiv {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 2rem 3.5rem;
     gap: 13px 170px;
-    grid-template-areas: 
-    "monto entrada salida"
-    "number divisa1 divisa2"
-    ;
-}
-.hijo{
+    grid-template-areas:
+      "monto entrada salida"
+      "number divisa1 divisa2";
+  }
+  .hijo {
     border: #000;
-    
-}
-
-.gridAc{
+  }
+  
+  .gridAc {
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-.calculador{
+  }
+  
+  .calculador {
     background-color: #007bff;
     color: #fff;
     border: none;
@@ -113,52 +110,90 @@
     padding: 8px 12px;
     border-radius: 3px;
     cursor: pointer;
-}
-
-.calculador:hover{
+  }
+  
+  .calculador:hover {
     background-color: #0056b3;
-}
-
-.mensajeError{
+  }
+  
+  .mensajeError {
     color: #ff0000ad;
     font-weight: bold;
     text-align: center;
     padding: 1.5rem;
-}
-
-/* ////////////////////////////////FOOTER//////////////////////////////// */
-.footerIndex{
+  }
+  
+  /* ////////////////////////////////FOOTER//////////////////////////////// */
+  .footerIndex {
     background-color: whitesmoke;
-    padding:.8rem;
-    font-family: 'Dongle', sans-serif;
+    padding: 0.8rem;
+    font-family: "Dongle", sans-serif;
     text-align: center;
     font-weight: bold;
     font-size: 25px;
     bottom: 0;
     width: 100%;
     position: absolute;
-} 
-
-.headerLink{
+  }
+  
+  .headerLink {
     text-decoration: none;
     color: black;
-}
-
-.footerLink{
+  }
+  
+  .footerLink {
     color: black;
-    text-decoration:underline;
+    text-decoration: underline;
     font-style: italic;
-}
-.footerLink:hover{
-    color:chartreuse;
+  }
+  .footerLink:hover {
+    color: chartreuse;
     text-decoration: none;
-} 
-
-/* ////////////////////////////////MODO DARK//////////////////////////////// */
-body.dark .headerIndex{
+  }
+  
+  /* ////////////////////////////////TABLAS//////////////////////////////// */
+  .sectionTablas {
+    display: flex;
+    justify-content: space-between;
+  }
+ 
+  table {
+      border-collapse: collapse;
+      width: 50%;
+      font-size: 14px;
+      margin: 10px;
+    }
+    
+    th,
+    td {
+      border: 3px solid #ddd;
+      text-align: left;
+      padding: 6px;
+      color: black;
+      font-weight: bold;
+    }
+    
+    th {
+      background-color: #f2f2f2;
+    }
+    
+    #tablaMoneda1,
+    #tablaMoneda2 {
+      display: none;
+    }
+    
+    #mensajeError {
+      color: red;
+      margin-top: 10px;
+      font-size: 14px;
+    }
+  
+  /* ////////////////////////////////MODO DARK//////////////////////////////// */
+  body.dark .headerIndex {
     background-color: black;
-
-}
-body.dark .headerLink{
+  }
+  body.dark .headerLink {
     color: azure;
-}
+  }
+  
+  
